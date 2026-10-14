@@ -1,0 +1,21 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test-python:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run Python application
+        run: python app.py
